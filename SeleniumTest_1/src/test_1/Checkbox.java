@@ -1,0 +1,33 @@
+package test_1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Checkbox {
+
+	public static void main(String[] args) throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver", "E:\\Testing Software\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+		driver.findElement(By.id("btnLogin")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[text()='Admin']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//table[@id='resultTable']//tbody//td//following-sibling::td//a[text()='Jacqueline.White']//parent::td//preceding-sibling::td")).click();
+		Thread.sleep(1000);
+		WebElement welcome = driver.findElement(By.id("welcome"));
+		welcome.click();
+		Thread.sleep(1000);
+		driver.findElement(By.linkText("Logout")).click();
+		Thread.sleep(1000);
+		driver.quit();
+	}
+}
+//table[@id='resultTable']//tbody//tr//td//a[text()='Goutam.Ganesh']//parent::td//preceding-sibling::td//input[@id='ohrmList_chkSelectRecord_34']
